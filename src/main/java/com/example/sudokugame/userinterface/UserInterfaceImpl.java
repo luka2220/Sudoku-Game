@@ -29,11 +29,6 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
     private final Stage stage;
     private final Group root;
 
-    //This HashMap stores the Hash Values (a unique identifier which is automatically generated;
-    // see java.lang.object in the documentation) of each TextField by their Coordinates. When a SudokuGame
-    //is given to the updateUI method, we iterate through it by X and Y coordinates and assign the values to the
-    //appropriate TextField therein. This means we don't need to hold a reference variable for every god damn
-    //text field in this app; which would be awful.
     //The Key (<Key, Value> -> <Coordinates, Integer>) will be the HashCode of a given InputField for ease of lookup
     private HashMap<Coordinates, SudokuTextField> textFieldCoordinates;
 
@@ -138,13 +133,6 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
         tile.setBackground(Background.EMPTY);
     }
 
-
-    /**
-     * In order to draw the various lines that make up the Sudoku grid, we use a starting x and y offset
-     * value (remember, x grows positively from left to right, and y grows positively from top to bottom).
-     * Each square is meant to be 64x64 units, so we add that number each time a
-     * @param root
-     */
     private void drawGridLines(Group root) {
         //draw vertical lines starting at 114x and 114y:
         int xAndY = 114;
